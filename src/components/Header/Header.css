@@ -1,0 +1,201 @@
+.olivario-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.olivario-header.scrolled {
+  background: rgba(11, 19, 43, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: rgba(30, 41, 59, 0.85);
+  box-shadow: 0 12px 30px -12px rgba(2, 6, 23, 0.75);
+}
+
+.olivario-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  gap: 1.5rem;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-symbol-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.75rem;
+  background: var(--bg-slate);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px -6px rgba(34, 197, 94, 0.25);
+}
+
+.brand-text-col {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--accent-olive);
+  font-weight: 500;
+}
+
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.desktop-nav a,
+.desktop-nav button {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav button:hover {
+  color: var(--accent-olive);
+}
+
+.header-actions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-cta {
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.75rem;
+  background: var(--accent-olive);
+  color: var(--bg-obsidian);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 8px 20px -8px rgba(34, 197, 94, 0.45);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.header-cta:hover {
+  background: var(--accent-olive-hover);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  background: rgba(15, 23, 42, 0.8);
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .desktop-nav,
+  .header-actions {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(11, 19, 43, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 2.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-drawer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.mobile-drawer-link {
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-drawer-link:hover {
+  border-color: rgba(34, 197, 94, 0.45);
+  color: var(--accent-olive);
+}
+
+.mobile-drawer-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(30, 41, 59, 0.85);
+}
+

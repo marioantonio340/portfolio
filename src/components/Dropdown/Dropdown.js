@@ -1,100 +1,109 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
-import styled from "@emotion/styled";
-import { Link as ScrollLink } from "react-scroll";
+import { FiExternalLink, FiMail, FiX } from "react-icons/fi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { profile } from "../../data/portfolioData";
+import "../Header/Header.css";
 
-const SiderBar = styled.div`
-  background: #151418;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  /* top: 0; */
-  left: 0;
-  z-index: 999;
-  transition: 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
-  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
-`;
+const mobileNavItems = [
+  { id: "sobre", label: "Sobre Mim" },
+  { id: "experiencia", label: "Experiência & Formação" },
+  { id: "projetos", label: "Projetos" },
+  { id: "stack", label: "Stack Tecnológica" },
+  { id: "certificacoes", label: "Certificações" },
+  { id: "contato", label: "Contato" },
+];
 
-const CloseIcon = styled(FaTimes)`
-  font-size: 2rem;
-  color: #fff;
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-  cursor: pointer;
-`;
-export const NavMenu = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+export default function Dropdown({ isOpen, toggle }) {
+  const handleJump = (id) => {
+    toggle();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-  .menu-item + .menu-item {
-    margin-top: 2rem;
-  }
-`;
-
-export const NavLink = styled(ScrollLink)`
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.7rem;
-
-  &:hover {
-    color: rgb(119, 119, 121);
-  }
-`;
-
-export const NavBtn = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 5rem;
-  font-size: 1.7rem;
-`;
-
-function Dropdown({ isOpen, toggle }) {
   return (
-    <SiderBar isOpen={isOpen} onClick={toggle}>
-      <CloseIcon onClick={toggle} />
-      <NavMenu>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="projects"
+    <div className={`mobile-drawer ${isOpen ? "open" : ""}`} aria-hidden={!isOpen}>
+      <div>
+        <div className="mobile-drawer-top">
+          <div className="brand-lockup">
+            <span className="brand-symbol-box">
+              <img
+                src={`${process.env.PUBLIC_URL}/symbol-olivario-icon.svg`}
+                alt="Olivario"
+              />
+            </span>
+            <span className="brand-text-col">
+              <span className="brand-name">{profile.name}</span>
+              <span className="brand-sub">olivario.com.br</span>
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={toggle}
+            className="mobile-menu-btn"
+            aria-label="Fechar menu"
+          >
+            <FiX />
+          </button>
+        </div>
+
+        <nav className="mobile-drawer-links" aria-label="Menu mobile">
+          {mobileNavItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleJump(item.id)}
+              className="mobile-drawer-link"
+            >
+              <span>{item.label}</span>
+              <span style={{ color: "#22C55E", fontSize: "0.875rem" }}>→</span>
+            </button>
+          ))}
+          <a
+            href={profile.olivarioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-drawer-link"
+          >
+            <span>Olivario Software</span>
+            <FiExternalLink size={16} color="#22C55E" />
+          </a>
+        </nav>
+      </div>
+
+      <div className="mobile-drawer-footer">
+        <button
+          type="button"
+          onClick={() => handleJump("contato")}
+          className="btn-olive"
+          style={{ width: "100%" }}
         >
-          Projects
-        </NavLink>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="about"
-        >
-          About
-        </NavLink>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="contact"
-        >
-          Contact
-        </NavLink>
-      </NavMenu>
-      <NavBtn onClick={toggle}>
-        <a
-          className="btn PrimaryBtn"
-          href="https://www.linkedin.com/in/mariofernandes340/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Resume
-        </a>
-      </NavBtn>
-    </SiderBar>
+          <FiMail /> Entrar em Contato
+        </button>
+
+        <div style={{ display: "flex", gap: "0.75rem" }}>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-slate"
+            style={{ flex: 1 }}
+          >
+            <FaLinkedin color="#0284C7" /> LinkedIn
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-slate"
+            style={{ flex: 1 }}
+          >
+            <FaGithub /> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default Dropdown;

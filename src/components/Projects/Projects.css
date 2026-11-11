@@ -1,0 +1,211 @@
+.projects-section {
+  padding: 5.5rem 0;
+}
+
+.projects-top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .projects-top-bar {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-slate);
+  border: 1px solid rgba(30, 41, 59, 0.95);
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: rgba(34, 197, 94, 0.45);
+  color: #ffffff;
+}
+
+.filter-pill.active {
+  background: var(--accent-olive);
+  color: var(--bg-obsidian);
+  border-color: var(--accent-olive);
+  box-shadow: 0 8px 18px -6px rgba(34, 197, 94, 0.45);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.project-subtitle-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  background: var(--bg-obsidian);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  color: var(--text-secondary);
+}
+
+.project-star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--accent-olive);
+}
+
+.project-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 1rem;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent-olive);
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.65;
+  margin-top: 0.65rem;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(30, 41, 59, 0.85);
+}
+
+.project-tech-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.28rem 0.65rem;
+  border-radius: 0.45rem;
+  background: var(--bg-obsidian);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  color: #cbd5e1;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.95rem;
+}
+
+.project-link-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-olive);
+}
+
+.project-link-primary:hover {
+  color: var(--accent-lime);
+}
+
+.project-link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.project-link-secondary:hover {
+  color: #ffffff;
+}
+
+.projects-github-footer {
+  margin-top: 2.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: var(--bg-obsidian);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .projects-github-footer {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+

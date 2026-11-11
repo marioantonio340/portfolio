@@ -1,59 +1,78 @@
 import React from "react";
-import { ProjectList } from "../../../data/ProjectData";
-import {
-  Card,
-  CardLeft,
-  CardRight,
-  TechCardContainer,
-  TechCard,
-  BtnGroup,
-} from "./ProjectCardElements";
-import ScrollAnimation from "react-animate-on-scroll";
-function ProjectCard() {
+import { FiArrowUpRight, FiCode, FiFolder, FiGlobe, FiServer, FiSmartphone, FiStar } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
+
+const categoryIcons = {
+  web: FiGlobe,
+  api: FiServer,
+  mobile: FiSmartphone,
+};
+
+export default function ProjectCard({ project, repoMeta }) {
+  const Icon = categoryIcons[project.category] || FiFolder;
+  const stars = repoMeta?.stargazers_count ?? 0;
+  const language = repoMeta?.language;
+
   return (
-    <>
-      {ProjectList.map((list, index) => (
-        <ScrollAnimation animateIn="fadeInLeft" key={index}>
-          <Card>
-            <CardLeft>
-              <img src={list.img} alt={list.name} />
-            </CardLeft>
-            <CardRight>
-              <h4>{list.title}</h4>
-              <p>{list.description}</p>
-              <TechCardContainer>
-                {list.tech_stack.map((tech, index) => (
-                  <TechCard key={index}>{tech}</TechCard>
-                ))}
-              </TechCardContainer>
-              <BtnGroup>
-                {list.github_url.length > 0 && (
-                  <a
-                    className="btn SecondaryBtn btn-shadow"
-                    href={list.github_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github
-                  </a>
-                )}
-                {list.demo_url.length > 0 && (
-                  <a
-                    className="btn PrimaryBtn btn-shadow"
-                    href={list.demo_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Demo ➜
-                  </a>
-                )}
-              </BtnGroup>
-            </CardRight>
-          </Card>
-        </ScrollAnimation>
-      ))}
-    </>
+    <article className={`tech-card project-card accent-${project.accent || "olive"}`}>
+      <div>
+        <div className="project-card-top">
+          <div className="project-icon-box">
+            <Icon size={20} />
+          </div>
+
+          <div className="project-badges">
+            {stars > 0 && (
+              <span className="project-star-pill" title="Stars no GitHub">
+                <FiStar size={12} /> {stars}
+              </span>
+            )}
+            {language && (
+              <span className="project-subtitle-pill" style={{ color: "#84CC16" }}>
+                <FiCode size={11} style={{ display: "inline", marginRight: 4 }} />
+                {language}
+              </span>
+            )}
+            <span className="project-subtitle-pill">{project.subtitle}</span>
+          </div>
+        </div>
+
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
+      </div>
+
+      <div>
+        <div className="project-tech-list">
+          {project.tech_stack.map((tech, idx) => (
+            <span key={idx} className="project-tech-tag">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="project-actions">
+          {project.demo_url && (
+            <a
+              href={project.demo_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link-primary"
+            >
+              Acessar Projeto <FiArrowUpRight size={15} />
+            </a>
+          )}
+          {project.github_url && (
+            <a
+              href={project.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={project.demo_url ? "project-link-secondary" : "project-link-primary"}
+            >
+              <FaGithub size={15} /> Ver Repositório <FiArrowUpRight size={14} />
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
-
-export default ProjectCard;

@@ -1,49 +1,50 @@
-import { IconButton, Tooltip, styled } from '@mui/material'
-import React, { useState, useEffect } from 'react'
-import { MdKeyboardArrowUp } from 'react-icons/md';
-import { animateScroll as scroll } from 'react-scroll';
+import React, { useEffect, useState } from "react";
+import { IconButton, Tooltip } from "@mui/material";
+import { MdKeyboardArrowUp } from "react-icons/md";
+import styled from "@emotion/styled";
 
 const StyledIconButton = styled(IconButton)`
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    color: white;
-    padding: 10px;
-`
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 45;
+  background-color: #0F172A !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 10px 25px -8px rgba(2, 6, 23, 0.9);
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
 
-const StyledArrowIcon = styled(MdKeyboardArrowUp)`
-    background-color: rgb(34, 34, 70);
-    border-radius: 50%;
-    padding: 5px;
-    box-shadow: 0px 4px 20px rgba(136, 134, 134, 0.41);
-`
+  &:hover {
+    background-color: #22C55E !important;
+    transform: translateY(-2px);
+    svg {
+      color: #0B132B !important;
+    }
+  }
+`;
 
-function ScrollToTop() {
-    const [open, setOpen] = React.useState(false);
-    const [shouldRender, setShouldRender] = useState(false);
+export default function ScrollToTop() {
+  const [shouldRender, setShouldRender] = useState(false);
 
-    const handleClick = () => {
-        setOpen(false);
-        scroll.scrollToTop({ duration: 0 });
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShouldRender(window.scrollY > 420);
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollThreshold = 500;
-            if (window.scrollY > scrollThreshold) setShouldRender(true)
-            else setShouldRender(false);
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-    }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    return (
-        shouldRender &&
-        <Tooltip title='Scroll to top' placement='top' open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
-            <StyledIconButton size='large' aria-label='scroll to top' onClick={handleClick} >
-                <StyledArrowIcon fontSize={40} />
-            </StyledIconButton>
-        </Tooltip>
-    )
+  if (!shouldRender) return null;
+
+  return (
+    <Tooltip title="Voltar ao topo" placement="left">
+      <StyledIconButton size="medium" aria-label="Voltar ao topo" onClick={handleClick}>
+        <MdKeyboardArrowUp size={26} color="#22C55E" />
+      </StyledIconButton>
+    </Tooltip>
+  );
 }
-
-export default ScrollToTop
