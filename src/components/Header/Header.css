@@ -91,6 +91,41 @@
   gap: 0.75rem;
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 0.65rem;
+  background: var(--bg-slate);
+  border: 1px solid rgba(51, 65, 85, 0.85);
+  gap: 0.15rem;
+}
+
+.lang-toggle-btn {
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.45rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-toggle-btn:hover {
+  color: #ffffff;
+}
+
+.lang-toggle-btn.active {
+  background: var(--accent-olive);
+  color: var(--bg-obsidian);
+}
+
+.mobile-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
 .header-cta {
   padding: 0.625rem 1.125rem;
   border-radius: 0.75rem;
@@ -129,7 +164,8 @@
     display: flex;
   }
 
-  .mobile-menu-btn {
+  .mobile-menu-btn,
+  .mobile-header-controls {
     display: none;
   }
 }

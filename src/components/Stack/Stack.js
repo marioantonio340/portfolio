@@ -1,26 +1,29 @@
 import React from "react";
-import { stackCategories } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent } from "../../data/portfolioData";
 import "./Stack.css";
 
 export default function Stack() {
+  const { lang } = useLanguage();
+  const { stack } = getPortfolioContent(lang);
+
   return (
     <section id="stack" className="stack-section">
       <div className="container-olivario">
         <div className="section-header-split">
           <div>
-            <p className="section-eyebrow">Tecnologias & Ferramentas</p>
-            <h2 className="section-heading">Stack completa do front ao deploy.</h2>
+            <p className="section-eyebrow">{stack.eyebrow}</p>
+            <h2 className="section-heading">{stack.heading}</h2>
           </div>
           <p className="section-subtitle" style={{ maxWidth: 460 }}>
-            Conjunto de linguagens, frameworks, bancos de dados, ecossistema Salesforce e
-            ferramentas de IA usadas em produção.
+            {stack.subtitle}
           </p>
         </div>
 
         <div className="stack-grid">
-          {stackCategories.map((category) => (
+          {stack.categories.map((category) => (
             <div
-              key={category.title}
+              key={category.id}
               className={`tech-card stack-card accent-${category.accent}`}
             >
               <div className="stack-card-header">
@@ -52,4 +55,3 @@ export default function Stack() {
     </section>
   );
 }
-

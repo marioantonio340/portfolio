@@ -9,15 +9,24 @@ import {
 } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
-import { profile } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent, profile } from "../../data/portfolioData";
 import { useRealtimeAge } from "../../hooks/useRealtimeAge";
 import Dropdown from "../Dropdown/Dropdown";
 import Header from "../Header/Header";
 import "./Hero.css";
 
+const focusIcons = {
+  fullstack: FiCode,
+  integrations: FiLayers,
+  ai: FiCpu,
+};
+
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+  const { lang } = useLanguage();
+  const content = getPortfolioContent(lang);
   const age = useRealtimeAge(profile.birthDate);
 
   const toggle = () => setIsOpen((prev) => !prev);
@@ -42,47 +51,15 @@ export default function Hero() {
             {/* Left Column */}
             <div className="hero-left">
               <h1 className="hero-title">
-                Olá, eu sou{" "}
+                {content.hero.greeting}{" "}
                 <span className="gradient-tech">{profile.name}.</span>
               </h1>
 
               <div className="hero-type-line" aria-live="polite">
                 <TypeAnimation
+                  key={lang}
                   cursor={true}
-                  sequence={[
-                    "A Full-Stack Developer.",
-                    1600,
-                    "Desenvolvedor Full Stack no Grupo Setta.",
-                    1600,
-                    "Formado em Sistemas de Informação — UNIPAM.",
-                    1400,
-                    "A problem solver.",
-                    1300,
-                    "An innovative thinker.",
-                    1300,
-                    "A....",
-                    900,
-                    "A.... cool guy?",
-                    1400,
-                    "Ok...",
-                    900,
-                    "Ok... I'm running out of ideas...",
-                    1300,
-                    "Uhh...",
-                    900,
-                    "Uhh... you can scroll down now...",
-                    1500,
-                    "Seriously???",
-                    1100,
-                    "You're uh...",
-                    900,
-                    "You're uh... still here?",
-                    1300,
-                    "Ok, this has been fun, but I'm gonna restart the loop now...",
-                    1400,
-                    "See ya! :)",
-                    900,
-                  ]}
+                  sequence={content.hero.typeSequence}
                   speed={55}
                   deletionSpeed={68}
                   wrapper="span"
@@ -91,12 +68,11 @@ export default function Hero() {
               </div>
 
               <p className="hero-description">
-                Tenho <strong>{age.years} anos</strong> e atuo como{" "}
-                <strong>Desenvolvedor Full Stack</strong> no <strong>{profile.company}</strong>,
-                projetando sistemas internos de ponta a ponta — de front-ends em{" "}
-                <strong>React, Next.js e TypeScript</strong> a back-ends em{" "}
-                <strong>Node.js</strong>, integrações com ERP TOTVS Protheus, Microsoft e
-                ecossistema Salesforce.
+                {content.hero.introBeforeAge} {age.years} {content.hero.yearsOldLabel}{" "}
+                {content.hero.introMiddle}{" "}
+                <strong>{content.hero.introRole}</strong> {content.hero.introAt}{" "}
+                <strong>{profile.company}</strong>
+                {content.hero.introAfterCompany}
               </p>
 
               <div className="hero-cta-row">
@@ -105,7 +81,7 @@ export default function Hero() {
                   onClick={() => scrollTo("projetos")}
                   className="btn-olive"
                 >
-                  Explorar Projetos <FiArrowRight size={17} />
+                  {content.hero.ctaProjects} <FiArrowRight size={17} />
                 </button>
 
                 <a
@@ -130,18 +106,12 @@ export default function Hero() {
               </div>
 
               <div className="hero-metrics">
-                <div>
-                  <p className="hero-metric-val">Front-end</p>
-                  <p className="hero-metric-label">React, Next.js & TS</p>
-                </div>
-                <div>
-                  <p className="hero-metric-val olive">Back-end & DB</p>
-                  <p className="hero-metric-label">Node, Prisma & SQL</p>
-                </div>
-                <div>
-                  <p className="hero-metric-val lime">Salesforce & IA</p>
-                  <p className="hero-metric-label">Apex, Flows & MCP</p>
-                </div>
+                {content.hero.metrics.map((metric) => (
+                  <div key={metric.val}>
+                    <p className={`hero-metric-val ${metric.tone}`}>{metric.val}</p>
+                    <p className="hero-metric-label">{metric.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -165,59 +135,39 @@ export default function Hero() {
                   <div>
                     <h2 className="hero-card-name">{profile.name}</h2>
                     <p className="hero-card-role">
-                      {profile.role} @ {profile.company}
+                      {content.role} @ {profile.company}
                     </p>
                     <p className="hero-card-loc">
                       <FiMapPin size={12} color="#22C55E" />
-                      {profile.location}
+                      {content.location}
                     </p>
                   </div>
                 </div>
 
                 <div className="hero-focus-list">
-                  <div className="hero-focus-item accent-olive">
-                    <div className="hero-focus-icon">
-                      <FiCode size={16} />
-                    </div>
-                    <div>
-                      <h3 className="hero-focus-title">Sistemas Web Ponta a Ponta</h3>
-                      <p className="hero-focus-desc">
-                        CRMs próprios, portais de BI, APIs em Node.js/.NET e interfaces em React,
-                        Next.js e TypeScript.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="hero-focus-item accent-electric">
-                    <div className="hero-focus-icon">
-                      <FiLayers size={16} />
-                    </div>
-                    <div>
-                      <h3 className="hero-focus-title">Integrações ERP, Microsoft & Salesforce</h3>
-                      <p className="hero-focus-desc">
-                        TOTVS Protheus, Microsoft Entra ID, Power BI Embedded, SharePoint, Apex e
-                        Flows.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="hero-focus-item accent-lime">
-                    <div className="hero-focus-icon">
-                      <FiCpu size={16} />
-                    </div>
-                    <div>
-                      <h3 className="hero-focus-title">IA Aplicada & Qualidade</h3>
-                      <p className="hero-focus-desc">
-                        Claude Code, servidores MCP, Vitest, Playwright e revisão contínua de código.
-                      </p>
-                    </div>
-                  </div>
+                  {content.hero.card.focusItems.map((item) => {
+                    const Icon = focusIcons[item.id] || FiCode;
+                    return (
+                      <div
+                        key={item.id}
+                        className={`hero-focus-item accent-${item.accent}`}
+                      >
+                        <div className="hero-focus-icon">
+                          <Icon size={16} />
+                        </div>
+                        <div>
+                          <h3 className="hero-focus-title">{item.title}</h3>
+                          <p className="hero-focus-desc">{item.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="hero-card-footer">
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
                     <FiCheckCircle size={14} color="#22C55E" />
-                    Full Stack Developer
+                    {content.hero.card.footerBadge}
                   </span>
                   <a
                     href={profile.github}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { IconButton, Tooltip } from "@mui/material";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import styled from "@emotion/styled";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent } from "../../data/portfolioData";
 
 const StyledIconButton = styled(IconButton)`
   position: fixed;
@@ -24,6 +26,8 @@ const StyledIconButton = styled(IconButton)`
 
 export default function ScrollToTop() {
   const [shouldRender, setShouldRender] = useState(false);
+  const { lang } = useLanguage();
+  const { scrollToTop } = getPortfolioContent(lang);
 
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -41,8 +45,8 @@ export default function ScrollToTop() {
   if (!shouldRender) return null;
 
   return (
-    <Tooltip title="Voltar ao topo" placement="left">
-      <StyledIconButton size="medium" aria-label="Voltar ao topo" onClick={handleClick}>
+    <Tooltip title={scrollToTop} placement="left">
+      <StyledIconButton size="medium" aria-label={scrollToTop} onClick={handleClick}>
         <MdKeyboardArrowUp size={26} color="#22C55E" />
       </StyledIconButton>
     </Tooltip>

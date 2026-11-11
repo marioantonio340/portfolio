@@ -1,19 +1,14 @@
 import React from "react";
 import { FiMail, FiTerminal, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { profile } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent, profile } from "../../data/portfolioData";
 import "../Header/Header.css";
 
-const mobileNavItems = [
-  { id: "sobre", label: "Sobre Mim" },
-  { id: "experiencia", label: "Experiência & Formação" },
-  { id: "projetos", label: "Projetos" },
-  { id: "stack", label: "Stack Tecnológica" },
-  { id: "certificacoes", label: "Certificações" },
-  { id: "contato", label: "Contato" },
-];
-
 export default function Dropdown({ isOpen, toggle }) {
+  const { lang, setLang } = useLanguage();
+  const content = getPortfolioContent(lang);
+
   const handleJump = (id) => {
     toggle();
     const el = document.getElementById(id);
@@ -32,22 +27,41 @@ export default function Dropdown({ isOpen, toggle }) {
             </span>
             <span className="brand-text-col">
               <span className="brand-name">{profile.name}</span>
-              <span className="brand-sub">Full Stack Developer</span>
+              <span className="brand-sub">{content.role}</span>
             </span>
           </div>
 
-          <button
-            type="button"
-            onClick={toggle}
-            className="mobile-menu-btn"
-            aria-label="Fechar menu"
-          >
-            <FiX />
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+            <div className="lang-toggle" role="group" aria-label="Language switcher">
+              <button
+                type="button"
+                onClick={() => setLang("pt")}
+                className={`lang-toggle-btn ${lang === "pt" ? "active" : ""}`}
+              >
+                PT-BR
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`lang-toggle-btn ${lang === "en" ? "active" : ""}`}
+              >
+                EN
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={toggle}
+              className="mobile-menu-btn"
+              aria-label={content.nav.closeMenu}
+            >
+              <FiX />
+            </button>
+          </div>
         </div>
 
-        <nav className="mobile-drawer-links" aria-label="Menu mobile">
-          {mobileNavItems.map((item) => (
+        <nav className="mobile-drawer-links" aria-label="Mobile menu">
+          {content.nav.mobileItems.map((item) => (
             <button
               key={item.id}
               type="button"
@@ -68,7 +82,7 @@ export default function Dropdown({ isOpen, toggle }) {
           className="btn-olive"
           style={{ width: "100%" }}
         >
-          <FiMail /> Entrar em Contato
+          <FiMail /> {content.nav.mobileCta}
         </button>
 
         <div style={{ display: "flex", gap: "0.75rem" }}>

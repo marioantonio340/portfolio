@@ -1,31 +1,34 @@
 import React from "react";
 import { FiAward, FiBookOpen, FiBriefcase, FiCheck, FiCompass } from "react-icons/fi";
-import { certifications, experiences } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent } from "../../data/portfolioData";
 import "./Experience.css";
 
 export default function Experience() {
+  const { lang } = useLanguage();
+  const { experience } = getPortfolioContent(lang);
+
   return (
     <section id="experiencia" className="experience-section">
       <div className="container-olivario">
         <div className="section-header-split">
           <div>
-            <p className="section-eyebrow">Trajetória & Formação</p>
-            <h2 className="section-heading">Experiência profissional e acadêmica.</h2>
+            <p className="section-eyebrow">{experience.eyebrow}</p>
+            <h2 className="section-heading">{experience.heading}</h2>
           </div>
           <p className="section-subtitle" style={{ maxWidth: 440 }}>
-            Histórico sólido conectando operação de negócios, ecossistema Salesforce, ERP e
-            engenharia de software moderna.
+            {experience.subtitle}
           </p>
         </div>
 
         <div className="timeline-list">
-          {experiences.map((exp, idx) => {
-            const Icon =
-              exp.type === "Formação Acadêmica"
-                ? FiBookOpen
-                : exp.type === "Empreendimento"
-                ? FiCompass
-                : FiBriefcase;
+          {experience.items.map((exp, idx) => {
+            const isEducation = exp.accent === "electric";
+            const Icon = isEducation
+              ? FiBookOpen
+              : exp.accent === "lime"
+              ? FiCompass
+              : FiBriefcase;
 
             return (
               <article
@@ -73,17 +76,16 @@ export default function Experience() {
         <div id="certificacoes" className="certs-block">
           <div className="section-header-split" style={{ marginBottom: 0 }}>
             <div>
-              <p className="section-eyebrow">Licenças & Certificações</p>
-              <h2 className="section-heading">Qualificações verificadas.</h2>
+              <p className="section-eyebrow">{experience.certsEyebrow}</p>
+              <h2 className="section-heading">{experience.certsHeading}</h2>
             </div>
             <p className="section-subtitle" style={{ maxWidth: 420 }}>
-              Certificações oficiais em Salesforce, Arquitetura de Software, Containers, ITIL e
-              Desenvolvimento Mobile.
+              {experience.certsSubtitle}
             </p>
           </div>
 
           <div className="certs-grid">
-            {certifications.map((cert, idx) => (
+            {experience.certifications.map((cert, idx) => (
               <div
                 key={idx}
                 className={`tech-card cert-card accent-${cert.accent}`}
@@ -107,4 +109,3 @@ export default function Experience() {
     </section>
   );
 }
-

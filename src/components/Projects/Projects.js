@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
-import { profile, projectCategories, projectsList } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent, profile } from "../../data/portfolioData";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import "./Projects.css";
 
@@ -9,6 +10,8 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [repoMap, setRepoMap] = useState({});
   const [publicRepoCount, setPublicRepoCount] = useState(19);
+  const { lang } = useLanguage();
+  const { projects } = getPortfolioContent(lang);
 
   useEffect(() => {
     let active = true;
@@ -27,7 +30,7 @@ export default function Projects() {
         }
       })
       .catch(() => {
-        // Fallback silencioso para dados estáticos locais
+        // Silent fallback to local static data
       });
 
     return () => {
@@ -37,23 +40,23 @@ export default function Projects() {
 
   const filteredProjects =
     activeCategory === "all"
-      ? projectsList
-      : projectsList.filter((project) => project.category === activeCategory);
+      ? projects.list
+      : projects.list.filter((project) => project.category === activeCategory);
 
   return (
     <section id="projetos" className="projects-section section-band">
       <div className="container-olivario">
         <div className="projects-top-bar">
           <div>
-            <p className="section-eyebrow">Portfólio & Código Aberto</p>
-            <h2 className="section-heading">Projetos e entregas em destaque.</h2>
+            <p className="section-eyebrow">{projects.eyebrow}</p>
+            <h2 className="section-heading">{projects.heading}</h2>
             <p className="section-subtitle" style={{ marginTop: "0.6rem", maxWidth: 580 }}>
-              Seleção de aplicações web, APIs, containers e projetos mobile publicados no meu GitHub.
+              {projects.subtitle}
             </p>
           </div>
 
-          <div className="projects-filters" role="tablist" aria-label="Filtrar projetos">
-            {projectCategories.map((cat) => (
+          <div className="projects-filters" role="tablist" aria-label="Project categories">
+            {projects.categories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
@@ -73,18 +76,25 @@ export default function Projects() {
             const meta = project.repoName
               ? repoMap[project.repoName.toLowerCase()]
               : undefined;
-            return <ProjectCard key={project.id} project={project} repoMeta={meta} />;
+            return (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                repoMeta={meta}
+                labels={projects}
+              />
+            );
           })}
         </div>
 
         <div className="projects-github-footer">
           <div>
             <p style={{ fontWeight: 700, color: "#ffffff", fontSize: "0.95rem" }}>
-              Quer explorar mais código?
+              {projects.moreCodeTitle}
             </p>
             <p style={{ color: "#94A3B8", fontSize: "0.85rem", marginTop: "0.2rem" }}>
-              +{publicRepoCount} repositórios públicos no GitHub cobrindo TypeScript, Node.js,
-              Docker, C# e Kotlin.
+              {projects.moreCodeDescPrefix}
+              {publicRepoCount} {projects.moreCodeDescSuffix}
             </p>
           </div>
 

@@ -8,7 +8,7 @@ const categoryIcons = {
   mobile: FiSmartphone,
 };
 
-export default function ProjectCard({ project, repoMeta }) {
+export default function ProjectCard({ project, repoMeta, labels }) {
   const Icon = categoryIcons[project.category] || FiFolder;
   const stars = repoMeta?.stargazers_count ?? 0;
   const language = repoMeta?.language;
@@ -23,7 +23,7 @@ export default function ProjectCard({ project, repoMeta }) {
 
           <div className="project-badges">
             {stars > 0 && (
-              <span className="project-star-pill" title="Stars no GitHub">
+              <span className="project-star-pill" title={labels.starsTooltip}>
                 <FiStar size={12} /> {stars}
               </span>
             )}
@@ -58,7 +58,7 @@ export default function ProjectCard({ project, repoMeta }) {
               rel="noopener noreferrer"
               className="project-link-primary"
             >
-              Acessar Projeto <FiArrowUpRight size={15} />
+              {labels.liveDemo} <FiArrowUpRight size={15} />
             </a>
           )}
           {project.github_url && (
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, repoMeta }) {
               rel="noopener noreferrer"
               className={project.demo_url ? "project-link-secondary" : "project-link-primary"}
             >
-              <FaGithub size={15} /> Ver Repositório <FiArrowUpRight size={14} />
+              <FaGithub size={15} /> {labels.viewRepo} <FiArrowUpRight size={14} />
             </a>
           )}
         </div>

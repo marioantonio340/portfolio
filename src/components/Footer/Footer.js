@@ -1,10 +1,19 @@
 import React from "react";
 import { FiMail, FiMapPin, FiTerminal } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { profile } from "../../data/portfolioData";
+import { useLanguage } from "../../context/LanguageContext";
+import { getPortfolioContent, profile } from "../../data/portfolioData";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const content = getPortfolioContent(lang);
+  const { footer } = content;
+
   const scrollTo = (id) => {
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -36,13 +45,10 @@ export default function Footer() {
               </span>
               <span className="brand-text-col">
                 <span className="brand-name">{profile.name}</span>
-                <span className="brand-sub">Full Stack Developer</span>
+                <span className="brand-sub">{content.role}</span>
               </span>
             </div>
-            <p style={{ lineHeight: 1.65, maxWidth: 320 }}>
-              Desenvolvedor Full Stack no Grupo Setta focado em aplicações web modernas, APIs,
-              integrações corporativas e ecossistema Salesforce.
-            </p>
+            <p style={{ lineHeight: 1.65, maxWidth: 320 }}>{footer.bio}</p>
             <p
               style={{
                 fontSize: "0.78rem",
@@ -52,7 +58,7 @@ export default function Footer() {
               }}
             >
               <FiMapPin size={14} color="#22C55E" />
-              {profile.location}
+              {content.location}
             </p>
           </div>
 
@@ -68,46 +74,20 @@ export default function Footer() {
                 marginBottom: "0.9rem",
               }}
             >
-              Navegação
+              {footer.navTitle}
             </h4>
             <ul style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  style={{ color: "#94A3B8" }}
-                >
-                  Início
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => scrollTo("sobre")} style={{ color: "#94A3B8" }}>
-                  Sobre Mim
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollTo("experiencia")}
-                  style={{ color: "#94A3B8" }}
-                >
-                  Experiência & Certificações
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollTo("projetos")}
-                  style={{ color: "#94A3B8" }}
-                >
-                  Projetos
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => scrollTo("stack")} style={{ color: "#94A3B8" }}>
-                  Stack Tecnológica
-                </button>
-              </li>
+              {footer.navLinks.map((link) => (
+                <li key={link.id}>
+                  <button
+                    type="button"
+                    onClick={() => scrollTo(link.id)}
+                    style={{ color: "#94A3B8" }}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -123,7 +103,7 @@ export default function Footer() {
                 marginBottom: "0.9rem",
               }}
             >
-              Conexões
+              {footer.channelsTitle}
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}>
               <a
@@ -169,9 +149,9 @@ export default function Footer() {
           }}
         >
           <p>
-            © {new Date().getFullYear()} {profile.name} • Portfólio Pessoal.
+            © {new Date().getFullYear()} {profile.name} • {footer.copyrightSuffix}
           </p>
-          <p>Full Stack Developer • React, TypeScript & Node.js</p>
+          <p>{footer.tagline}</p>
         </div>
       </div>
     </footer>
