@@ -48,8 +48,7 @@ export default function Projects() {
             <p className="section-eyebrow">Portfólio & Código Aberto</p>
             <h2 className="section-heading">Projetos e entregas em destaque.</h2>
             <p className="section-subtitle" style={{ marginTop: "0.6rem", maxWidth: 580 }}>
-              Seleção de soluções web, APIs, containers e aplicativos publicados no meu GitHub e
-              na Olivario Software.
+              Seleção de aplicações web, APIs, containers e projetos mobile publicados no meu GitHub.
             </p>
           </div>
 

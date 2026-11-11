@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FiExternalLink, FiMail, FiMenu, FiX } from "react-icons/fi";
+import { FiMail, FiMenu, FiTerminal, FiX } from "react-icons/fi";
 import { profile } from "../../data/portfolioData";
 import "./Header.css";
 
@@ -42,15 +42,12 @@ export default function Header({ isOpen, toggle, closeMenu }) {
             className="brand-lockup"
             aria-label="Início — Mário Fernandes"
           >
-            <span className="brand-symbol-box">
-              <img
-                src={`${process.env.PUBLIC_URL}/symbol-olivario-icon.svg`}
-                alt="Olivario"
-              />
+            <span className="brand-symbol-box" style={{ color: "#22C55E" }}>
+              <FiTerminal size={20} />
             </span>
             <span className="brand-text-col">
               <span className="brand-name">{profile.name}</span>
-              <span className="brand-sub">portfolio.olivario.com.br</span>
+              <span className="brand-sub">Full Stack Developer</span>
             </span>
           </a>
 
@@ -64,13 +61,6 @@ export default function Header({ isOpen, toggle, closeMenu }) {
                 {item.label}
               </button>
             ))}
-            <a
-              href={profile.olivarioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Olivario <FiExternalLink size={13} />
-            </a>
           </nav>
 
           <div className="header-actions">

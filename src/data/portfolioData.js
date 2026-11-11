@@ -3,18 +3,14 @@ export const profile = {
   fullName: "Mário Antônio Fernandes de Oliveira",
   birthDate: { year: 1998, month: 8, day: 6 },
   birthLabel: "06/08/1998",
-  headline: "Salesforce Developer | Full Stack (React & TypeScript) | AI-Driven Engineering",
+  headline: "Full Stack Developer (React, TypeScript & Node.js) | Salesforce | AI-Driven Engineering",
   role: "Desenvolvedor Full Stack",
   company: "Grupo Setta",
-  founderTitle: "Fundador & Especialista em Soluções",
-  founderCompany: "Olivario Software",
   location: "Patos de Minas, MG • Brasil",
   email: "marioantonio340@gmail.com",
-  olivarioEmail: "contato@olivario.com.br",
   github: "https://github.com/marioantonio340",
   githubUsername: "marioantonio340",
   linkedin: "https://www.linkedin.com/in/mariofernandes340/",
-  olivarioUrl: "https://olivario.com.br",
   avatarUrl: "https://avatars.githubusercontent.com/u/43358964?v=4",
 };
 
@@ -23,58 +19,43 @@ export const engineeringPillars = [
     id: "fullstack-erp",
     accent: "olive",
     badge: "Ponta a Ponta",
-    title: "Sistemas Internos & Integrações Corporativas",
+    title: "Desenvolvimento Full Stack & Arquitetura",
     description:
-      "Desenvolvimento completo de CRMs, portais de BI e aplicações internas integradas ao ERP TOTVS Protheus e ao ecossistema Microsoft (Entra ID, Power BI Embedded e SharePoint).",
+      "Construção completa de aplicações web, APIs e sistemas internos — do banco de dados e regras de negócio ao front-end moderno em React, Next.js e TypeScript.",
   },
   {
     id: "salesforce",
     accent: "electric",
-    badge: "CRM & Automação",
-    title: "Ecossistema Salesforce & Migração",
+    badge: "Integrações & CRM",
+    title: "ERP, Microsoft & Ecossistema Salesforce",
     description:
-      "Atuação prática com Apex, Flows, SF CLI e DevOps Center — administrando orgs corporativas e liderando a migração de fluxos comerciais para aplicações próprias.",
+      "Integrações corporativas com TOTVS Protheus e Microsoft (Entra ID, Power BI Embedded, SharePoint), além de Apex, Flows, SF CLI e migração de processos para apps próprios.",
   },
   {
     id: "ai-driven",
     accent: "lime",
-    badge: "Engenharia com IA",
-    title: "AI-Driven Engineering & Qualidade",
+    badge: "Qualidade & IA",
+    title: "AI-Driven Engineering & Testes",
     description:
-      "Uso estratégico de IA no fluxo de desenvolvimento (Claude Code e servidores MCP) aliado a revisão rigorosa de código e testes automatizados com Vitest e Playwright.",
+      "Uso prático de IA no fluxo de desenvolvimento (Claude Code e servidores MCP) aliado a revisão rigorosa de código e testes automatizados com Vitest e Playwright.",
   },
 ];
 
 export const experiences = [
   {
     period: "Dez 2023 — Atual",
-    role: "Desenvolvedor Full Stack & Salesforce",
+    role: "Desenvolvedor Full Stack",
     organization: "Grupo Setta",
     location: "Patos de Minas, MG",
     type: "Tempo integral",
     accent: "olive",
     summary:
-      "Evolução de Analista de Suporte e administração Salesforce para engenharia de sistemas internos ponta a ponta, conectando operações comerciais, dados e ERP.",
+      "Desenvolvimento de sistemas internos de ponta a ponta (CRM, portais de BI, integrações com ERP e ferramentas de apoio ao time), além de atuação direta no ecossistema Salesforce.",
     highlights: [
-      "Desenvolvimento de sistemas internos: CRM próprio, portais de BI e ferramentas de apoio à operação.",
-      "Customização e governança no ecossistema Salesforce (Apex, Flows, SF CLI, DevOps Center) e migração de processos comerciais.",
-      "Integrações corporativas com TOTVS Protheus e plataforma Microsoft (Entra ID, Power BI Embedded, SharePoint).",
-      "Entrega acelerada por AI-Driven Engineering (Claude Code & MCP) com validação via Vitest, Playwright e ESLint.",
-    ],
-  },
-  {
-    period: "2025 — Atual",
-    role: "Fundador & Especialista em Soluções Digitais",
-    organization: "Olivario Software",
-    location: "olivario.com.br",
-    type: "Empreendimento",
-    accent: "lime",
-    summary:
-      "Consultoria e fábrica de software focada em soluções sob medida, automação inteligente de processos e agentes de Inteligência Artificial para empresas.",
-    highlights: [
-      "Arquitetura de plataformas web exclusivas, painéis gerenciais e portais corporativos.",
-      "Implementação de agentes de IA para atendimento, triagem e análise de documentos.",
-      "Automação e integração entre canais comerciais, WhatsApp, CRM e financeiro.",
+      "Desenvolvimento full stack com React, Next.js, TypeScript, Node.js, Prisma e PostgreSQL/MySQL.",
+      "Integrações corporativas com o ERP TOTVS Protheus e plataforma Microsoft (Entra ID, Power BI Embedded, SharePoint).",
+      "Atuação em Salesforce (Apex, Flows, SF CLI, DevOps Center) e migração de processos comerciais para aplicações próprias.",
+      "Entrega acelerada com AI-Driven Engineering (Claude Code & MCP) com validação via Vitest, Playwright e ESLint.",
     ],
   },
   {
@@ -85,9 +66,9 @@ export const experiences = [
     type: "Formação Acadêmica",
     accent: "electric",
     summary:
-      "Formação sólida em engenharia de software, estruturas de dados, bancos de dados relacionais, arquitetura de sistemas e gestão de TI.",
+      "Formação sólida em engenharia de software, estruturas de dados, bancos de dados relacionais, arquitetura de sistemas e gestão de infraestrutura de TI.",
     highlights: [
-      "Base acadêmica consolidada em desenvolvimento web, mobile, APIs e engenharia de requisitos.",
+      "Base acadêmica consolidada em desenvolvimento web, mobile, APIs REST e engenharia de requisitos.",
     ],
   },
 ];
@@ -140,17 +121,17 @@ export const projectCategories = [
 
 export const projectsList = [
   {
-    id: "olivario",
-    repoName: null,
-    title: "Olivario Software",
-    subtitle: "Plataforma Institucional & Marca",
+    id: "time-capsule",
+    repoName: "time-capsule",
+    title: "Cápsula do Tempo • NLW Spacetime",
+    subtitle: "Timeline Full Stack de Memórias",
     category: "web",
     featured: true,
     description:
-      "Portal institucional da Olivario Software, apresentando soluções sob medida, automação de processos e agentes de Inteligência Artificial corporativos com identidade visual própria.",
-    tech_stack: ["React", "Tailwind CSS", "Vite", "UI/UX"],
-    github_url: "",
-    demo_url: "https://olivario.com.br",
+      "Aplicação full-stack onde usuários registram textos, fotos e vídeos em uma linha do tempo cronológica organizada por mês e ano.",
+    tech_stack: ["TypeScript", "React", "Next.js", "Node.js"],
+    github_url: "https://github.com/marioantonio340/time-capsule",
+    demo_url: "",
     accent: "olive",
   },
   {
@@ -168,32 +149,18 @@ export const projectsList = [
     accent: "lime",
   },
   {
-    id: "time-capsule",
-    repoName: "time-capsule",
-    title: "Cápsula do Tempo • NLW Spacetime",
-    subtitle: "Timeline Full Stack de Memórias",
-    category: "web",
-    featured: true,
-    description:
-      "Aplicação full-stack onde usuários registram textos, fotos e vídeos em uma linha do tempo cronológica organizada por mês e ano.",
-    tech_stack: ["TypeScript", "React", "Next.js", "Node.js"],
-    github_url: "https://github.com/marioantonio340/time-capsule",
-    demo_url: "",
-    accent: "electric",
-  },
-  {
     id: "json-server-vercel",
     repoName: "json-server-vercel",
     title: "Rent a Battery API",
     subtitle: "REST API Serverless na Vercel",
     category: "api",
-    featured: false,
+    featured: true,
     description:
       "API REST estruturada com JSON Server e deploy contínuo na Vercel para simulação e consumo de endpoints de locação de baterias.",
     tech_stack: ["JavaScript", "Node.js", "JSON Server", "Vercel"],
     github_url: "https://github.com/marioantonio340/json-server-vercel",
     demo_url: "https://json-server-vercel-eta-virid.vercel.app",
-    accent: "olive",
+    accent: "electric",
   },
   {
     id: "fortinite-meta-gaming",
@@ -207,7 +174,7 @@ export const projectsList = [
     tech_stack: ["TypeScript", "Web App"],
     github_url: "https://github.com/marioantonio340/fortinite-meta-gaming",
     demo_url: "",
-    accent: "electric",
+    accent: "olive",
   },
   {
     id: "desafios-full-cycle",
@@ -322,4 +289,3 @@ export const stackCategories = [
     ],
   },
 ];
-

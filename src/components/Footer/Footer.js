@@ -1,5 +1,5 @@
 import React from "react";
-import { FiExternalLink, FiMail, FiMapPin } from "react-icons/fi";
+import { FiMail, FiMapPin, FiTerminal } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { profile } from "../../data/portfolioData";
 
@@ -31,20 +31,17 @@ export default function Footer() {
           {/* Brand */}
           <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
             <div className="brand-lockup">
-              <span className="brand-symbol-box">
-                <img
-                  src={`${process.env.PUBLIC_URL}/symbol-olivario-icon.svg`}
-                  alt="Olivario"
-                />
+              <span className="brand-symbol-box" style={{ color: "#22C55E" }}>
+                <FiTerminal size={20} />
               </span>
               <span className="brand-text-col">
                 <span className="brand-name">{profile.name}</span>
-                <span className="brand-sub">Olivario Software</span>
+                <span className="brand-sub">Full Stack Developer</span>
               </span>
             </div>
             <p style={{ lineHeight: 1.65, maxWidth: 320 }}>
-              Salesforce Developer, Desenvolvedor Full Stack no Grupo Setta e Fundador da
-              Olivario Software.
+              Desenvolvedor Full Stack no Grupo Setta focado em aplicações web modernas, APIs,
+              integrações corporativas e ecossistema Salesforce.
             </p>
             <p
               style={{
@@ -154,15 +151,6 @@ export default function Footer() {
                 <FaGithub size={15} color="#F8FAFC" />
                 GitHub
               </a>
-              <a
-                href={profile.olivarioUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
-              >
-                <FiExternalLink size={15} color="#84CC16" />
-                olivario.com.br
-              </a>
             </div>
           </div>
         </div>
@@ -181,9 +169,9 @@ export default function Footer() {
           }}
         >
           <p>
-            © {new Date().getFullYear()} {profile.name} • Olivario Software (portfolio.olivario.com.br).
+            © {new Date().getFullYear()} {profile.name} • Portfólio Pessoal.
           </p>
-          <p>Salesforce • Full Stack • AI-Driven Engineering</p>
+          <p>Full Stack Developer • React, TypeScript & Node.js</p>
         </div>
       </div>
     </footer>

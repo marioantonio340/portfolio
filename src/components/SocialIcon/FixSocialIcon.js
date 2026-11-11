@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FiGlobe } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import styled from "@emotion/styled";
 import { profile } from "../../data/portfolioData";
 
@@ -74,13 +74,11 @@ export default function FixSocialIcon() {
         </li>
         <li>
           <a
-            href={profile.olivarioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Olivario Software"
-            title="olivario.com.br"
+            href={`mailto:${profile.email}`}
+            aria-label="E-mail"
+            title={profile.email}
           >
-            <FiGlobe />
+            <FiMail />
           </a>
         </li>
       </ul>

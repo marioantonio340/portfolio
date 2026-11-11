@@ -1,5 +1,5 @@
 import React from "react";
-import { FiExternalLink, FiMail, FiX } from "react-icons/fi";
+import { FiMail, FiTerminal, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { profile } from "../../data/portfolioData";
 import "../Header/Header.css";
@@ -27,15 +27,12 @@ export default function Dropdown({ isOpen, toggle }) {
       <div>
         <div className="mobile-drawer-top">
           <div className="brand-lockup">
-            <span className="brand-symbol-box">
-              <img
-                src={`${process.env.PUBLIC_URL}/symbol-olivario-icon.svg`}
-                alt="Olivario"
-              />
+            <span className="brand-symbol-box" style={{ color: "#22C55E" }}>
+              <FiTerminal size={20} />
             </span>
             <span className="brand-text-col">
               <span className="brand-name">{profile.name}</span>
-              <span className="brand-sub">olivario.com.br</span>
+              <span className="brand-sub">Full Stack Developer</span>
             </span>
           </div>
 
@@ -61,15 +58,6 @@ export default function Dropdown({ isOpen, toggle }) {
               <span style={{ color: "#22C55E", fontSize: "0.875rem" }}>→</span>
             </button>
           ))}
-          <a
-            href={profile.olivarioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mobile-drawer-link"
-          >
-            <span>Olivario Software</span>
-            <FiExternalLink size={16} color="#22C55E" />
-          </a>
         </nav>
       </div>
 

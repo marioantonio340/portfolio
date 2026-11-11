@@ -19,11 +19,11 @@ export default function About() {
         <div className="about-header">
           <p className="section-eyebrow">Sobre Mim</p>
           <h2 className="section-heading">
-            Engenharia de software orientada a impacto real no negócio.
+            Desenvolvimento Full Stack orientado a resolver problemas reais.
           </h2>
           <p className="section-subtitle" style={{ marginTop: "0.75rem" }}>
-            De suporte técnico e administração de CRM a sistemas corporativos completos com
-            Salesforce, ERP e Inteligência Artificial.
+            Sistemas internos de ponta a ponta, integrações corporativas e engenharia moderna com
+            foco em qualidade e entrega contínua.
           </p>
         </div>
 
@@ -33,23 +33,22 @@ export default function About() {
               Sou <strong>{profile.fullName}</strong>, tenho{" "}
               <strong style={{ color: "#22C55E" }}>{age.years} anos</strong> (nascido em{" "}
               {profile.birthLabel}) e sou natural de <strong>Patos de Minas, MG</strong>.
-              Graduado em <strong>Sistemas de Informação pelo UNIPAM</strong> (2023), atuo hoje
-              como <strong>Desenvolvedor Full Stack no Grupo Setta</strong> e lidero a{" "}
-              <strong>Olivario Software</strong>.
+              Graduado em <strong>Sistemas de Informação pelo UNIPAM</strong> (2023), atuo como{" "}
+              <strong>Desenvolvedor Full Stack no Grupo Setta</strong>.
             </p>
 
             <p className="about-story-text">
-              No dia a dia, projeto e construo sistemas internos de ponta a ponta — incluindo{" "}
+              Construo sistemas internos completos de ponta a ponta — incluindo{" "}
               <strong>CRM próprio, portais de BI, integrações com o ERP TOTVS Protheus</strong> e
-              com o ecossistema <strong>Microsoft (Entra ID, Power BI Embedded e SharePoint)</strong>.
-              Também trabalho diretamente com <strong>Salesforce (Apex, Flows, SF CLI, DevOps Center)</strong>,
-              conduzindo a evolução e migração de processos comerciais para aplicações sob medida.
+              com a plataforma <strong>Microsoft (Entra ID, Power BI Embedded e SharePoint)</strong>.
+              Também trabalho com o ecossistema <strong>Salesforce (Apex, Flows, SF CLI, DevOps Center)</strong>,
+              conduzindo a evolução e migração de processos comerciais para aplicações próprias.
             </p>
 
             <p className="about-story-text">
-              Adoto práticas modernas de <strong>AI-Driven Engineering</strong> usando{" "}
-              <strong>Claude Code e servidores MCP</strong> para acelerar entregas sem abrir mão de
-              arquitetura limpa, revisão de código e testes automatizados com{" "}
+              Utilizo <strong>AI-Driven Engineering</strong> no dia a dia com{" "}
+              <strong>Claude Code e servidores MCP</strong> para acelerar entregas, sempre aliado
+              a revisão de código, boas práticas de arquitetura e testes automatizados com{" "}
               <strong>Vitest e Playwright</strong>.
             </p>
           </div>
@@ -74,13 +73,13 @@ export default function About() {
               </div>
 
               <div className="about-fact-row">
-                <span className="about-fact-key">Empresa Atual</span>
-                <span className="about-fact-val">Grupo Setta</span>
+                <span className="about-fact-key">Cargo Atual</span>
+                <span className="about-fact-val">Desenvolvedor Full Stack</span>
               </div>
 
               <div className="about-fact-row">
-                <span className="about-fact-key">Empreendimento</span>
-                <span className="about-fact-val">Olivario Software</span>
+                <span className="about-fact-key">Empresa</span>
+                <span className="about-fact-val">Grupo Setta</span>
               </div>
 
               <div className="about-fact-row">

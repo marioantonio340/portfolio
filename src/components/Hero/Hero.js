@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import {
   FiArrowRight,
   FiCheckCircle,
-  FiCloud,
+  FiCode,
   FiCpu,
   FiLayers,
   FiMapPin,
 } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
 import { profile } from "../../data/portfolioData";
 import { useRealtimeAge } from "../../hooks/useRealtimeAge";
 import Dropdown from "../Dropdown/Dropdown";
@@ -40,21 +41,62 @@ export default function Hero() {
           <div className="hero-grid">
             {/* Left Column */}
             <div className="hero-left">
-              <div className="hero-badge">
-                <span className="pulse-dot" />
-                <span>Salesforce • Full Stack (React & TS) • AI-Driven Engineering</span>
-              </div>
-
               <h1 className="hero-title">
-                Construindo sistemas corporativos com{" "}
-                <span className="gradient-tech">Engenharia, Salesforce & IA.</span>
+                Olá, eu sou{" "}
+                <span className="gradient-tech">{profile.name}.</span>
               </h1>
 
+              <div className="hero-type-line" aria-live="polite">
+                <TypeAnimation
+                  cursor={true}
+                  sequence={[
+                    "A Full-Stack Developer.",
+                    1600,
+                    "Desenvolvedor Full Stack no Grupo Setta.",
+                    1600,
+                    "Formado em Sistemas de Informação — UNIPAM.",
+                    1400,
+                    "A problem solver.",
+                    1300,
+                    "An innovative thinker.",
+                    1300,
+                    "A....",
+                    900,
+                    "A.... cool guy?",
+                    1400,
+                    "Ok...",
+                    900,
+                    "Ok... I'm running out of ideas...",
+                    1300,
+                    "Uhh...",
+                    900,
+                    "Uhh... you can scroll down now...",
+                    1500,
+                    "Seriously???",
+                    1100,
+                    "You're uh...",
+                    900,
+                    "You're uh... still here?",
+                    1300,
+                    "Ok, this has been fun, but I'm gonna restart the loop now...",
+                    1400,
+                    "See ya! :)",
+                    900,
+                  ]}
+                  speed={55}
+                  deletionSpeed={68}
+                  wrapper="span"
+                  repeat={Infinity}
+                />
+              </div>
+
               <p className="hero-description">
-                Olá, eu sou <strong>{profile.name}</strong> ({age.years} anos). Atuo como{" "}
-                <strong>{profile.role}</strong> no <strong>{profile.company}</strong> e sou
-                fundador da <strong>{profile.founderCompany}</strong>, desenvolvendo CRMs,
-                portais de BI, integrações com ERP TOTVS Protheus e automações inteligentes de ponta a ponta.
+                Tenho <strong>{age.years} anos</strong> e atuo como{" "}
+                <strong>Desenvolvedor Full Stack</strong> no <strong>{profile.company}</strong>,
+                projetando sistemas internos de ponta a ponta — de front-ends em{" "}
+                <strong>React, Next.js e TypeScript</strong> a back-ends em{" "}
+                <strong>Node.js</strong>, integrações com ERP TOTVS Protheus, Microsoft e
+                ecossistema Salesforce.
               </p>
 
               <div className="hero-cta-row">
@@ -89,21 +131,21 @@ export default function Hero() {
 
               <div className="hero-metrics">
                 <div>
-                  <p className="hero-metric-val">Full Stack</p>
-                  <p className="hero-metric-label">React, Next.js & Node</p>
+                  <p className="hero-metric-val">Front-end</p>
+                  <p className="hero-metric-label">React, Next.js & TS</p>
                 </div>
                 <div>
-                  <p className="hero-metric-val olive">Salesforce</p>
-                  <p className="hero-metric-label">Apex, Flows & DevOps</p>
+                  <p className="hero-metric-val olive">Back-end & DB</p>
+                  <p className="hero-metric-label">Node, Prisma & SQL</p>
                 </div>
                 <div>
-                  <p className="hero-metric-val lime">IA & MCP</p>
-                  <p className="hero-metric-label">Claude Code & Testes</p>
+                  <p className="hero-metric-val lime">Salesforce & IA</p>
+                  <p className="hero-metric-label">Apex, Flows & MCP</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Executive Profile & Live Age Card */}
+            {/* Right Column: Developer Summary Card */}
             <div>
               <div className="hero-card">
                 <div className="hero-card-header">
@@ -118,12 +160,6 @@ export default function Hero() {
                       className="hero-avatar"
                       onError={() => setAvatarError(true)}
                     />
-                    <span className="hero-avatar-badge" title="Olivario Software">
-                      <img
-                        src={`${process.env.PUBLIC_URL}/symbol-olivario-icon.svg`}
-                        alt="Olivario"
-                      />
-                    </span>
                   </div>
 
                   <div>
@@ -138,49 +174,29 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Live Real-Time Age Widget */}
-                <div className="age-telemetry-box">
-                  <div className="age-telemetry-top">
-                    <span className="age-telemetry-label">
-                      Idade em tempo real • Nasc. {profile.birthLabel}
-                    </span>
-                    <span className="age-live-pill">
-                      <span className="pulse-dot" style={{ width: 6, height: 6 }} />
-                      LIVE
-                    </span>
-                  </div>
-                  <div className="age-telemetry-main">
-                    <div className="age-years">
-                      {age.years} <span>anos</span>
-                    </div>
-                    <div className="age-breakdown" aria-live="polite">
-                      {age.months}m · {String(age.days).padStart(2, "0")}d ·{" "}
-                      {age.formattedClock}
-                    </div>
-                  </div>
-                </div>
-
                 <div className="hero-focus-list">
-                  <div className="hero-focus-item accent-electric">
+                  <div className="hero-focus-item accent-olive">
                     <div className="hero-focus-icon">
-                      <FiCloud size={16} />
+                      <FiCode size={16} />
                     </div>
                     <div>
-                      <h3 className="hero-focus-title">Ecossistema Salesforce & CRM</h3>
+                      <h3 className="hero-focus-title">Sistemas Web Ponta a Ponta</h3>
                       <p className="hero-focus-desc">
-                        Apex, Flows, SF CLI, DevOps Center e migração de processos para aplicações próprias.
+                        CRMs próprios, portais de BI, APIs em Node.js/.NET e interfaces em React,
+                        Next.js e TypeScript.
                       </p>
                     </div>
                   </div>
 
-                  <div className="hero-focus-item accent-olive">
+                  <div className="hero-focus-item accent-electric">
                     <div className="hero-focus-icon">
                       <FiLayers size={16} />
                     </div>
                     <div>
-                      <h3 className="hero-focus-title">Integrações ERP & Microsoft</h3>
+                      <h3 className="hero-focus-title">Integrações ERP, Microsoft & Salesforce</h3>
                       <p className="hero-focus-desc">
-                        TOTVS Protheus, Microsoft Entra ID, Power BI Embedded e SharePoint conectados.
+                        TOTVS Protheus, Microsoft Entra ID, Power BI Embedded, SharePoint, Apex e
+                        Flows.
                       </p>
                     </div>
                   </div>
@@ -201,15 +217,15 @@ export default function Hero() {
                 <div className="hero-card-footer">
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
                     <FiCheckCircle size={14} color="#22C55E" />
-                    Fundador da Olivario Software
+                    Full Stack Developer
                   </span>
                   <a
-                    href={profile.olivarioUrl}
+                    href={profile.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: "#22C55E", fontWeight: 600 }}
                   >
-                    olivario.com.br →
+                    github.com/{profile.githubUsername} →
                   </a>
                 </div>
               </div>

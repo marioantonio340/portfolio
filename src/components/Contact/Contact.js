@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiArrowUpRight, FiCheck, FiCopy, FiExternalLink, FiMail, FiMapPin } from "react-icons/fi";
+import { FiArrowUpRight, FiCheck, FiCopy, FiMail, FiMapPin } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { profile } from "../../data/portfolioData";
 import "./Contact.css";
@@ -23,14 +23,14 @@ export default function Contact() {
 
           <div className="contact-grid">
             <div>
-              <span className="contact-badge">Contato Direto & Parcerias</span>
+              <span className="contact-badge">Contato Direto</span>
               <h2 className="contact-title">
-                Vamos conversar sobre engenharia, Salesforce ou um novo projeto.
+                Vamos conversar sobre engenharia de software, projetos ou oportunidades.
               </h2>
               <p className="contact-text">
-                Disponível para conexões profissionais, troca técnica sobre desenvolvimento Full
-                Stack e Salesforce, além de projetos corporativos sob medida através da{" "}
-                <strong style={{ color: "#ffffff" }}>Olivario Software</strong>.
+                Sempre aberto para trocar ideias sobre desenvolvimento Full Stack, arquitetura de
+                sistemas, integrações corporativas, ecossistema Salesforce e novos desafios
+                técnicos.
               </p>
 
               <div className="contact-cta-row">
@@ -40,13 +40,13 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href={profile.olivarioUrl}
+                  href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-slate"
                 >
-                  Conhecer a Olivario Software
-                  <FiExternalLink size={15} color="#22C55E" />
+                  <FaLinkedin size={16} color="#0284C7" />
+                  Conectar no LinkedIn
                 </a>
               </div>
             </div>
@@ -112,10 +112,7 @@ export default function Contact() {
                   <FiArrowUpRight size={15} color="#22C55E" />
                 </a>
 
-                <div
-                  className="contact-channel-link"
-                  style={{ cursor: "default" }}
-                >
+                <div className="contact-channel-link" style={{ cursor: "default" }}>
                   <span className="contact-channel-left">
                     <FiMapPin size={16} color="#22C55E" />
                     <span>{profile.location}</span>
