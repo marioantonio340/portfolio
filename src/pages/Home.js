@@ -4,6 +4,7 @@ import About from "../components/About/About";
 import Experience from "../components/Experience/Experience";
 import Projects from "../components/Projects/Projects";
 import Stack from "../components/Stack/Stack";
+import LiveActivity from "../components/LiveActivity/LiveActivity";
 import Contact from "../components/Contact/Contact";
 import FixSocialIcon from "../components/SocialIcon/FixSocialIcon";
 import Footer from "../components/Footer/Footer";
@@ -18,6 +19,7 @@ function Home() {
         <Experience />
         <Projects />
         <Stack />
+        <LiveActivity />
         <Contact />
       </main>
       <FixSocialIcon />

@@ -1,0 +1,514 @@
+.activity-section {
+  position: relative;
+  background-color: #0B132B;
+}
+
+.activity-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.activity-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.6);
+}
+
+.activity-card-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 9999px;
+  filter: blur(55px);
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.duo-glow {
+  background: #58CC02;
+}
+
+.git-glow {
+  background: #22C55E;
+}
+
+.in-glow {
+  background: #0A66C2;
+}
+
+.activity-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.activity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.duo-badge {
+  background: rgba(88, 204, 2, 0.14);
+  color: #79dd1c;
+  border: 1px solid rgba(88, 204, 2, 0.35);
+}
+
+.git-badge {
+  background: rgba(34, 197, 94, 0.14);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.in-badge {
+  background: rgba(10, 102, 194, 0.16);
+  color: #38bdf8;
+  border: 1px solid rgba(10, 102, 194, 0.4);
+}
+
+.live-dot-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  animation: pulse-dot 2s infinite;
+}
+
+.duo-dot {
+  background-color: #58cc02;
+  box-shadow: 0 0 8px #58cc02;
+}
+
+.git-dot {
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.in-dot {
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.activity-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.activity-profile-line {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.duo-avatar-frame {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: rgba(88, 204, 2, 0.15);
+  border: 2px solid rgba(88, 204, 2, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.duo-avatar-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.duo-flag-icon {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 0.85rem;
+  background: #0f172a;
+  border-radius: 9999px;
+  padding: 1px 3px;
+  line-height: 1;
+}
+
+.git-avatar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 2px solid rgba(34, 197, 94, 0.4);
+  object-fit: cover;
+}
+
+.in-avatar-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: rgba(10, 102, 194, 0.15);
+  border: 2px solid rgba(10, 102, 194, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.activity-card-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0.15rem 0 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Duolingo Streak Highlight */
+.duo-streak-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(88, 204, 2, 0.12) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(88, 204, 2, 0.3);
+}
+
+.duo-streak-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 0.65rem;
+  background: rgba(255, 150, 0, 0.18);
+  border: 1px solid rgba(255, 150, 0, 0.4);
+  color: #ff9600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.duo-streak-val {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.duo-streak-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #84cc16;
+  margin-left: 0.25rem;
+}
+
+.duo-streak-caption {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.activity-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.activity-stats-row.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.activity-stat-box {
+  background: rgba(11, 19, 43, 0.6);
+  border: 1px solid rgba(30, 41, 59, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.activity-stat-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.activity-stat-num {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.duo-accent {
+  color: #84cc16;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* GitHub Extra info */
+.git-extra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 0.65rem;
+  background: rgba(11, 19, 43, 0.5);
+  border: 1px solid rgba(30, 41, 59, 0.7);
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.git-extra-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.git-extra-line strong {
+  color: #e2e8f0;
+}
+
+/* LinkedIn Role Box */
+.in-role-box {
+  background: rgba(11, 19, 43, 0.55);
+  border: 1px solid rgba(30, 41, 59, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.95rem 1rem;
+}
+
+.in-role-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.in-company-title {
+  font-size: 0.8rem;
+  color: #38bdf8;
+  margin-top: 0.15rem;
+}
+
+.in-role-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 0.55rem 0 0;
+  line-height: 1.45;
+}
+
+.in-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.in-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  color: #cbd5e1;
+}
+
+/* Activity Button */
+.activity-card-btn {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.duo-btn {
+  background: rgba(88, 204, 2, 0.14);
+  color: #79dd1c;
+  border: 1px solid rgba(88, 204, 2, 0.35);
+}
+
+.duo-btn:hover {
+  background: #58cc02;
+  color: #0b132b;
+}
+
+.git-btn {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.git-btn:hover {
+  background: #22c55e;
+  color: #0b132b;
+}
+
+.in-btn {
+  background: rgba(10, 102, 194, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(10, 102, 194, 0.4);
+}
+
+.in-btn:hover {
+  background: #0a66c2;
+  color: #ffffff;
+}
+
+/* Trailhead - Discreto abaixo dos cards */
+.trailhead-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.15rem 1.5rem;
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  transition: border-color 0.2s ease;
+}
+
+.trailhead-strip:hover {
+  border-color: rgba(0, 161, 224, 0.45);
+}
+
+.trailhead-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trailhead-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 0.6rem;
+  background: rgba(0, 161, 224, 0.12);
+  border: 1px solid rgba(0, 161, 224, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trailhead-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.trailhead-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(0, 161, 224, 0.14);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 161, 224, 0.3);
+}
+
+.trailhead-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.trailhead-desc {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0.2rem 0 0;
+}
+
+.trailhead-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #38bdf8;
+  text-decoration: none;
+  padding: 0.55rem 0.95rem;
+  border-radius: 0.55rem;
+  background: rgba(0, 161, 224, 0.1);
+  border: 1px solid rgba(0, 161, 224, 0.25);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.trailhead-link-btn:hover {
+  background: rgba(0, 161, 224, 0.22);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .trailhead-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .trailhead-link-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
