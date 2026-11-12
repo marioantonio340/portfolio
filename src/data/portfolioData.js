@@ -23,29 +23,11 @@ const baseProjects = [
   {
     id: "convert-case",
     repoName: "convert-case",
-    category: "mobile",
+    category: "web",
     tech_stack: ["HTML5", "CSS3", "JavaScript"],
     github_url: "https://github.com/marioantonio340/convert-case",
     demo_url: "",
     accent: "lime",
-  },
-  {
-    id: "json-server-vercel",
-    repoName: "json-server-vercel",
-    category: "api",
-    tech_stack: ["JavaScript", "Node.js", "JSON Server", "Vercel"],
-    github_url: "https://github.com/marioantonio340/json-server-vercel",
-    demo_url: "https://json-server-vercel-eta-virid.vercel.app",
-    accent: "electric",
-  },
-  {
-    id: "fortinite-meta-gaming",
-    repoName: "fortinite-meta-gaming",
-    category: "web",
-    tech_stack: ["TypeScript", "Web App"],
-    github_url: "https://github.com/marioantonio340/fortinite-meta-gaming",
-    demo_url: "",
-    accent: "olive",
   },
   {
     id: "desafios-full-cycle",
@@ -54,25 +36,7 @@ const baseProjects = [
     tech_stack: ["Docker", "Go", "Node.js", "Architecture"],
     github_url: "https://github.com/marioantonio340/desafios-full-cycle",
     demo_url: "",
-    accent: "lime",
-  },
-  {
-    id: "aspnet-rest-api",
-    repoName: "ASP.NET-REST-API",
-    category: "api",
-    tech_stack: ["C#", ".NET Core", "SQL Server", "Swagger"],
-    github_url: "https://github.com/marioantonio340/ASP.NET-REST-API",
-    demo_url: "",
     accent: "electric",
-  },
-  {
-    id: "app-repositories",
-    repoName: "App-Repositories",
-    category: "mobile",
-    tech_stack: ["Kotlin", "Android", "REST API"],
-    github_url: "https://github.com/marioantonio340/App-Repositories",
-    demo_url: "",
-    accent: "olive",
   },
 ];
 
@@ -90,35 +54,11 @@ const projectCopy = {
       description:
         "Transformador e formatador de texto instantâneo desenvolvido para agilizar edição e padronização de textos com foco em usabilidade e interface responsiva.",
     },
-    "json-server-vercel": {
-      title: "Rent a Battery API",
-      subtitle: "REST API Serverless na Vercel",
-      description:
-        "API REST estruturada com JSON Server e deploy contínuo na Vercel para simulação e consumo de endpoints de locação de baterias.",
-    },
-    "fortinite-meta-gaming": {
-      title: "Fortnite Meta Gaming",
-      subtitle: "Aplicação Web em TypeScript",
-      description:
-        "Projeto web estruturado em TypeScript voltado à organização de dados e consulta de meta competitiva para jogadores.",
-    },
     "desafios-full-cycle": {
       title: "Desafios Full Cycle",
       subtitle: "Docker, Go & Node.js",
       description:
         "Implementações práticas de engenharia de software e otimização de imagens Docker multi-stage com Go e Node.js.",
-    },
-    "aspnet-rest-api": {
-      title: "ASP.NET Core REST API",
-      subtitle: "CRUD Corporativo + Swagger",
-      description:
-        "Web API RESTful em .NET Core com persistência em SQL Server e documentação interativa de endpoints via Swagger.",
-    },
-    "app-repositories": {
-      title: "App Repositories",
-      subtitle: "Mobile Android Nativo",
-      description:
-        "Aplicativo Android desenvolvido em Kotlin para buscar, listar e inspecionar repositórios públicos do GitHub.",
     },
   },
   en: {
@@ -134,35 +74,11 @@ const projectCopy = {
       description:
         "Instant text transformer and formatter built to speed up text editing and standardization with a clean, responsive UI.",
     },
-    "json-server-vercel": {
-      title: "Rent a Battery API",
-      subtitle: "Serverless REST API on Vercel",
-      description:
-        "REST API powered by JSON Server and continuous Vercel deployment to simulate and serve battery rental endpoints.",
-    },
-    "fortinite-meta-gaming": {
-      title: "Fortnite Meta Gaming",
-      subtitle: "TypeScript Web Application",
-      description:
-        "TypeScript web application focused on organizing game data and tracking competitive meta insights.",
-    },
     "desafios-full-cycle": {
       title: "Full Cycle Challenges",
       subtitle: "Docker, Go & Node.js",
       description:
         "Hands-on software architecture exercises and multi-stage Docker image optimization using Go and Node.js.",
-    },
-    "aspnet-rest-api": {
-      title: "ASP.NET Core REST API",
-      subtitle: "Enterprise CRUD + Swagger",
-      description:
-        "RESTful Web API built with .NET Core, SQL Server persistence, and interactive endpoint documentation via Swagger.",
-    },
-    "app-repositories": {
-      title: "App Repositories",
-      subtitle: "Native Android App",
-      description:
-        "Android application built in Kotlin to search, list, and inspect public GitHub repositories.",
     },
   },
 };
@@ -457,8 +373,7 @@ const translations = {
       categories: [
         { id: "all", label: "Todos" },
         { id: "web", label: "Web & Full Stack" },
-        { id: "api", label: "APIs & Arquitetura" },
-        { id: "mobile", label: "Mobile & Utilitários" },
+        { id: "api", label: "Arquitetura & Infra" },
       ],
       liveDemo: "Acessar Projeto",
       viewRepo: "Ver Repositório",
@@ -729,8 +644,7 @@ const translations = {
       categories: [
         { id: "all", label: "All" },
         { id: "web", label: "Web & Full Stack" },
-        { id: "api", label: "APIs & Architecture" },
-        { id: "mobile", label: "Mobile & Utilities" },
+        { id: "api", label: "Architecture & Infra" },
       ],
       liveDemo: "Live Demo",
       viewRepo: "View Repository",
